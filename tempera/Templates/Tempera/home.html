@@ -1,17 +1,388 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tempêra App</title>
-    <link rel="stylesheet" href="{% static 'tempera/css/home.css' %}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tempêra - A Curadoria Editorial do Paladar</title>
+
+  <link rel="stylesheet" href="{% static 'tempera/css/home.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Bem-vindo ao Tempêra</h1>
-        <p>Esta é a página inicial do Tempêra.</p> <br>
-        <p>Seu App de Receitas Favorito</p>
+
+  <header class="site-header">
+    <nav class="container navbar">
+      <div class="logo">Tempêra </div>
+
+      <ul class="nav-menu">
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="#">Receitas</a></li>
+        <li><a href="#">Categorias</a></li>
+        <li><a href="#">Favoritos</a></li>
+        <li><a href="#">Sobre</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-ghost">Login</button>
+        <button class="btn btn-primary">Registrar</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+
+    <section class="hero">
+      <div class="hero-background">
+        <div class="hero-overlay"></div>
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuChRoZc9-I7IpX10sieK3T4e-YlI9rmhtwtAzlXYynpKYiPW0gqpFyAzq7rCA4nigUf8CTgOXiInWGPwT0EVUM7Mx__111HXb0mwvJrJVRleGfEFMBTNuOFBM98BctukVC3l2ymRCodwsCD2gIbcIy96Nnpp5VJV9dFKn1BgX_vYg8VLPBq7muSgqAozLnUwZQqXFiRRSMM2Ag_WG242SrhIccithyrQG_n6FrhMIYi8SlUNAu6jsYtOTY7z6aBl21g_u1bxfbtgA"
+          alt="Cozinha moderna"
+        />
+      </div>
+
+      <div class="container hero-content">
+        <h1>
+          Descubra receitas com o que você
+          <span>já tem</span> em casa
+        </h1>
+
+        <p>
+          Sua geladeira cheia de possibilidades. Diga-nos o que você tem,
+          nós dizemos o que cozinhar.
+        </p>
+
+        <div class="hero-search-box">
+          <div class="search-input-wrapper">
+            <span class="material-symbols-outlined icon">search</span>
+            <input
+              type="text"
+              placeholder="Digite os ingredientes... (ex: tomate, manjericão)"
+            />
+          </div>
+          <button class="btn btn-primary btn-search">Buscar receitas</button>
+        </div>
+
+        <div class="suggestions">
+          <span class="suggestions-label">Sugestões:</span>
+          <button>arroz</button>
+          <button>frango</button>
+          <button>queijo</button>
+          <button>massa</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="weather-section container">
+      <div class="weather-card">
+        <div class="weather-info">
+          <div class="weather-icon">
+            <span class="material-symbols-outlined filled">light_mode</span>
+          </div>
+          <div>
+            <h3>Hoje está 28°C ☀️ — Que tal uma bebida gelada?</h3>
+            <p>Receitas refrescantes selecionadas para o clima de hoje.</p>
+          </div>
+        </div>
+        <button class="btn btn-dark">Ver receitas para hoje</button>
+      </div>
+    </section>
+
+    <section class="featured-recipes container">
+      <div class="section-header">
+        <div>
+          <h2>Destaques da Semana</h2>
+          <p>As curadorias que mais inspiraram nossos chefs.</p>
+        </div>
+        <a href="#" class="section-link">
+          Ver todas
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+
+      <div class="recipes-grid">
+        <article class="recipe-card">
+          <div class="recipe-image-wrapper">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuARw-7qW5Jws5EV-pGAAdt_u3CYPk141HGIHUH5qlkX01E7qYqk3Iu7Eg1XooqHPGK-XaP0cFej9nYHfc1PsgO7TgAvRVzO3vFCdataIqGBaotT5Wdlhhpqu9ChUggD8OSbMzz-TKfuywvoGxSQzO71r7qHGVaTojRovEfI6K4NQ9yItGy3VvjMRgo57JCjIduoOqjMOTSbAoE11xnCvwnZLaSooKcC9vN-iUZZk5njmPfDVkRNn41u7qiFIse9wu14Enxwdi19xw"
+              alt="Penne ao pesto"
+            />
+            <button class="favorite-btn">
+              <span class="material-symbols-outlined">favorite</span>
+            </button>
+
+            <div class="recipe-tags">
+              <span>Massas</span>
+              <span>🇮🇹 Itália</span>
+            </div>
+          </div>
+
+          <div class="recipe-body">
+            <h3>Penne ao Pesto de Manjericão e Nozes Tostadas</h3>
+            <button class="btn btn-secondary">Ver receita</button>
+          </div>
+        </article>
+
+        <article class="recipe-card">
+          <div class="recipe-image-wrapper">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD86XUUVfXJsQcGT8BtLqnZ_CE12EeswrRqOiNsjbAOwXxFNPC7S0XWIrVHOjNbbtWUnJ0_K0QTZra_dWE_G-2O4PYW-GvD8dtAR5Fv9uoJTwhIhhcUpzusoMEXZ5gn62AlRSVACVQ9fkd3sCIv-QA5H632hOemwwK_btEvm0VmUvsPqXjO50-DRX2Zw_S8nHytLyDK8ujB0MqnU7v29JyeFC13r72K0CdV4DCVXKJNEb3NeVLkHq7CH4mzJKZW9QvtazCfir8jyQ"
+              alt="Salmão grelhado"
+            />
+            <button class="favorite-btn">
+              <span class="material-symbols-outlined">favorite</span>
+            </button>
+
+            <div class="recipe-tags">
+              <span>Peixes</span>
+              <span>🇳🇴 Noruega</span>
+            </div>
+          </div>
+
+          <div class="recipe-body">
+            <h3>Salmão Grelhado com Crosta de Ervas e Limão Siciliano</h3>
+            <button class="btn btn-secondary">Ver receita</button>
+          </div>
+        </article>
+
+        <article class="recipe-card">
+          <div class="recipe-image-wrapper">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuARt7fCryP7hVKpl2S5E5kDxkdwPTcgswkCR8U8gJ5GmZXBwFegQzhe1GxnvqHBHV1dmi4EwTEsCYU0iFZUw-qn5_jNcyVd1cWQs3wwSprA-cixkt7Ae9kamB8vjRRpQGlb5p_Qf0zVNQgIBYSJ3IGdvtqZLurtGINkhXFPF-vL2BWuV1hZ0weT0wsiCid9Y38l5hb4zlJemFgawG8MI0rppaD1O3X0fcnlY5uTr9WvE-EHY__ox6CNare1Xhm0hsY5z2KH2GwMeQ"
+              alt="Donuts"
+            />
+            <button class="favorite-btn">
+              <span class="material-symbols-outlined">favorite</span>
+            </button>
+
+            <div class="recipe-tags">
+              <span>Sobremesas</span>
+              <span>🇺🇸 EUA</span>
+            </div>
+          </div>
+
+          <div class="recipe-body">
+            <h3>Donuts Clássicos com Cobertura Crocante de Chocolate</h3>
+            <button class="btn btn-secondary">Ver receita</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="surprise-filters-section">
+      <div class="container surprise-filters-grid">
+
+        <div class="surprise-card">
+          <div class="surprise-image">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7M6gH-rZH-g7QrPMI7Ncnn3ncIZWYCc1P4sPWRpbAXtWmYpKlObgLZbOlhw2WuZ9x4YZzNqZUCawErBi5qJRjifzHK4dJZXmGHtpF7oIvlJWNG_HnuaYJqd_Q0OieShgSAq4723m62KKkJIVmB64aWkyVT_Lu8CwrHU8CSqN_0qIhvubeIqUJkbyTOFlxBjoQGZqwSdHHTn1z-HzOb2gKUis8cW0PBt_JXUn6OpkL-te6MbByP5fluF8eimkxsLvVeCiWXKx5hw"
+              alt="Receita surpresa"
+            />
+          </div>
+
+          <div class="surprise-content">
+            <span class="badge">SUGESTÃO DO CHEF</span>
+            <h2>Receita Surpresa</h2>
+            <p>
+              Não sabe o que cozinhar hoje? Deixe a sorte decidir e descubra
+              um novo sabor favorito.
+            </p>
+
+            <div class="surprise-actions">
+              <button class="btn btn-primary full">Ver esta receita</button>
+              <button class="btn btn-text">
+                <span class="material-symbols-outlined">refresh</span>
+                Gerar outra receita
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="filters-box">
+          <h3>
+            <span class="material-symbols-outlined">filter_list</span>
+            Filtros Rápidos
+          </h3>
+
+          <div class="filter-group">
+            <p>Por Tempo</p>
+            <div class="filter-options">
+              <button>até 15 min</button>
+              <button>até 30 min</button>
+              <button>1h ou mais</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <p>Por Dieta</p>
+            <div class="filter-options">
+              <button>Vegano</button>
+              <button>Sem Glúten</button>
+              <button>Low Carb</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="categories container">
+      <h2 class="center-title">Navegue por Categorias</h2>
+
+      <div class="categories-grid">
+        <a href="#" class="category-card">
+          <div class="category-icon orange">
+            <span class="material-symbols-outlined">dinner_dining</span>
+          </div>
+          <span>Massas</span>
+        </a>
+
+        <a href="#" class="category-card">
+          <div class="category-icon pink">
+            <span class="material-symbols-outlined">icecream</span>
+          </div>
+          <span>Sobremesas</span>
+        </a>
+
+        <a href="#" class="category-card">
+          <div class="category-icon red">
+            <span class="material-symbols-outlined">set_meal</span>
+          </div>
+          <span>Carnes</span>
+        </a>
+
+        <a href="#" class="category-card">
+          <div class="category-icon blue">
+            <span class="material-symbols-outlined">local_bar</span>
+          </div>
+          <span>Bebidas</span>
+        </a>
+
+        <a href="#" class="category-card">
+          <div class="category-icon green">
+            <span class="material-symbols-outlined">eco</span>
+          </div>
+          <span>Vegano</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="favorites-preview container">
+      <div class="favorites-card">
+        <div class="favorites-bg">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOo7ekYp3Ld08_kA5Aow9XUwpX7T_g6mkVTzM5RV6mpc1YR4rnt91cwn2Bytr62yOlXvwF9IZDOH95twl5vnjJi5kCnWcOZs8HCk2xgwJaybC7lRKK2nY8JzMWcOJIk1nzPXjNzbxXy01XBJlYjfXPXDMsenshand3JCtOqvnhyGrsOeHIRD6D81x3xE-AbgI1gkJX9UsARl0rhjvehOsucSJfkmsdjSAmE-QK-nFS6Qs7ZzqWnMojdZ63eU8KYx7NU5lq3LGmnA"
+            alt="Fundo decorativo"
+          />
+        </div>
+
+        <div class="favorites-content">
+          <span class="material-symbols-outlined filled big-heart">favorite</span>
+          <h2>Sua coleção pessoal aguarda</h2>
+          <p>
+            Faça login para salvar suas receitas favoritas, organizar pastas por
+            ocasião e nunca perder aquela inspiração perfeita.
+          </p>
+          <button class="btn btn-primary rounded">Entrar agora</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="countries container">
+      <h3>
+        <span class="material-symbols-outlined">public</span>
+        Sabores do Mundo
+      </h3>
+
+      <div class="countries-list">
+        <button>🇧🇷 Brasil</button>
+        <button>🇮🇹 Itália</button>
+        <button>🇲🇽 México</button>
+        <button>🇯🇵 Japão</button>
+        <button>🇫🇷 França</button>
+        <button>🇮🇳 Índia</button>
+        <button>🇬🇷 Grécia</button>
+        <button>🇹🇭 Tailândia</button>
+      </div>
+    </section>
+
+    <section class="cta-newsletter container">
+      <div class="cta-box">
+        <h2>Descubra receitas incríveis agora mesmo</h2>
+        <p>
+          Junte-se a milhares de cozinheiros amadores que transformaram sua
+          rotina na cozinha.
+        </p>
+        <button class="btn btn-dark large">Começar agora</button>
+      </div>
+
+      <div class="newsletter-box">
+        <div class="newsletter-icon">
+          <span class="material-symbols-outlined">mail</span>
+        </div>
+        <h2>Receba novas receitas por e-mail</h2>
+        <p>
+          Uma seleção editorial semanal com os melhores ingredientes da estação
+          diretamente na sua caixa de entrada.
+        </p>
+
+        <div class="newsletter-form">
+          <input type="email" placeholder="Seu melhor e-mail" />
+          <button class="btn btn-dark">Inscrever</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section container-small">
+      <h2>Nossa Missão</h2>
+      <p>
+        "O Tempêra ajuda você a encontrar receitas deliciosas com o que você já
+        tem em casa, reduzindo o desperdício e inspirando novos sabores."
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">Tempêra</div>
+        <p>
+          Sua curadoria editorial do Paladar, transformando ingredientes simples
+          em experiências extraordinárias.
+        </p>
+
+        <div class="footer-social">
+          <a href="#"><span class="material-symbols-outlined">share</span></a>
+          <a href="#"><span class="material-symbols-outlined">camera</span></a>
+          <a href="#"><span class="material-symbols-outlined">video_library</span></a>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-links">
+          <a href="#">Sobre</a>
+          <a href="#">Contato</a>
+          <a href="#">GitHub</a>
+        </div>
+
+        <div class="footer-copy">
+          © 2024 Tempêra - A Curadoria Editorial do Paladar
+        </div>
+      </div>
     </div>
+  </footer>
+
 </body>
 </html>
