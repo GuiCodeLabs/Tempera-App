@@ -42,7 +42,7 @@
           <h1>
             A arte de cozinhar,
             <br />
-            curada para você.
+            criada para você.
           </h1>
         </div>
 
@@ -104,61 +104,51 @@
           <span>OU USE SEU E-MAIL</span>
         </div>
 
-        <form method="post" register-form" onsubmit="return false;">
-            {% csrf_token %}
-            {{ form.as_p }}
+        <form method="post" register-form class="registration-form">
+          
+          {% csrf_token %}
+
+          {{ form.non_field_errors }}
+
           <div class="form-grid">
             <div class="form-group">
-              <label for="name">Nome completo</label>
+              <label for="{ form.username.id_for_label }">Nome completo</label>
               <div class="input-wrapper">
                 <span class="material-symbols-outlined input-icon">person</span>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Ex: Ana Silva"
-                />
+                {{ form.username }}
               </div>
+              {{ form.username.errors }}
             </div>
 
             <div class="form-group">
-              <label for="email">E-mail</label>
+              <label for="{ form.email.id_for_label }">E-mail</label>
+              
               <div class="input-wrapper">
                 <span class="material-symbols-outlined input-icon">mail</span>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="nome@exemplo.com"
-                />
+                {{ form.email }}
               </div>
+              {{ form.email.errors }}
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="password">Senha</label>
+                <label for="{ form.password1.id_for_label }">Senha</label>
+                
                 <div class="input-wrapper">
                   <span class="material-symbols-outlined input-icon">lock</span>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="••••••••"
-                  />
+                  {{ form.password1 }}
+                  
                 </div>
+                  {{ form.password1.errors }}
               </div>
 
               <div class="form-group">
-                <label for="confirm_password">Confirmar</label>
+                <label for="{ form.password2.id_for_label }">Confirmar</label>
                 <div class="input-wrapper">
                   <span class="material-symbols-outlined input-icon">shield_lock</span>
-                  <input
-                    type="password"
-                    id="confirm_password"
-                    name="confirm_password"
-                    placeholder="••••••••"
-                  />
+                  {{ form.password2 }}
                 </div>
+                {{ form.password2.errors }}
               </div>
             </div>
           </div>
@@ -187,7 +177,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>© 2024 Tempêra. O Curador Orgânico.</p>
+    <p>© 2026 Tempêra. Todos os direitos reservados.</p>
   </footer>
 </body>
 </html>
