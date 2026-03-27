@@ -104,7 +104,9 @@
           <span>OU USE SEU E-MAIL</span>
         </div>
 
-        <form class="register-form" onsubmit="return false;">
+        <form method="post" register-form" onsubmit="return false;">
+            {% csrf_token %}
+            {{ form.as_p }}
           <div class="form-grid">
             <div class="form-group">
               <label for="name">Nome completo</label>
