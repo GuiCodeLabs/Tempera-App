@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Tempêra</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background-color: #f0f2f5; }
+        .profile-card { background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; width: 350px; }
+        .profile-pic { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid #e2e8f0; margin-bottom: 1rem; }
+        h1 { margin: 10px 0; color: #1a202c; font-size: 1.5rem; }
+        p { color: #4a5568; margin: 5px 0; }
+        .actions { margin-top: 25px; display: flex; flex-direction: column; gap: 10px; }
+        .btn { padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; cursor: pointer; border: none; transition: opacity 0.2s; }
+        .btn-edit { background-color: #4a90e2; color: white; }
+        .btn-logout { background-color: #edf2f7; color: #4a5568; }
+        .btn-delete { background-color: #fff5f5; color: #c53030; font-size: 0.8rem; margin-top: 15px; }
+        .btn:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        {% with google_acc=usuario.googleaccount_set.first %}
+            {% if google_acc.picture %}
+                <img src="{{ google_acc.picture }}" alt="Foto do Google" class="profile-pic">
+            {% elif usuario.foto %}
+                <img src="{{ usuario.foto.url }}" alt="Foto de Perfil" class="profile-pic">
+            {% else %}
+                <img src="https://ui-avatars.com/api/?name={{ usuario.username }}" alt="Avatar" class="profile-pic">
+            {% endif %}
+        {% endwith %}
+
+        <h1>{{ usuario.first_name|default:usuario.username }}</h1>
+        <p>{{ usuario.email }}</p>
+
+        <div class="actions">
+            <a href="{% url 'editar_perfil' %}" class="btn btn-edit">Editar Perfil</a>
+            
+            <form action="{% url 'logout' %}" method="POST" style="display: contents;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-logout">Sair da Conta</button>
+            </form>
+
+            <form action="{% url 'deletar_usuario' %}" method="POST" onsubmit="return confirm('Tem certeza? Isso excluirá todos os seus dados.');">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-delete">Excluir minha conta permanentemente</button>
+            </form>
+        </div>
+        <p style="margin-top: 20px;"><a href="/" style="color: #4a90e2; text-decoration: none; font-size: 0.9rem;">← Voltar para Início</a></p>
+    </div>
+</body>
+</html>

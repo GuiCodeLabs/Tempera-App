@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.conf import settings
 
 class Usuario(AbstractUser):
     email = models.EmailField(unique=True, blank=False, null=False)
@@ -14,5 +15,11 @@ class Usuario(AbstractUser):
         return self.username
 
 
+#Models Google
+class GoogleAccount(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    google_sub = models.CharField(max_length=255, unique=True)
+    picture = models.URLField(blank=True, null=True)
 
-# Create your models here.
+    def __str__(self):
+        return f"{self.user.email} - Google"
