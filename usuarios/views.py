@@ -111,13 +111,11 @@ def google_login(request):
                     user.save()
 
             # Verifica se o usuário já tem uma GoogleAccount
-            google_account_user = GoogleAccount.objects.filter(user=user).first()
-
-            if google_account_user:
-                google_account_user.google_sub = google_sub
-                google_account_user.picture = picture
-                google_account_user.save()
-            else:
+            try:
+                user.googleaccount.google_sub = google_sub
+                user.googleaccount.picture = picture
+                user.googleaccount.save()
+            except GoogleAccount.DoesNotExist:
                 GoogleAccount.objects.create(
                     user=user,
                     google_sub=google_sub,
