@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 import os
 
-GOOGLE_CLIENT_ID = "584366605651-03g5q6uj8c7t7iom7aetg4lj3k2d627q.apps.googleusercontent.com"
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "fallback-id-para-desenvolvimento")
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i4%5*79ynns$#=)m9xt)xbru6ntqsj5&t9(csfngohzo#8*8%e'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "chave-insegura-de-desenvolvimento")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
