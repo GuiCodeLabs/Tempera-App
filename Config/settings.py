@@ -10,12 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 import os
+from pathlib import Path
+from dotenv import load_dotenv
 
+# Carrega as variáveis de ambiente do arquivo .env
+load_dotenv()
+
+# Obtém as variáveis de ambiente necessárias
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "fallback-id-para-desenvolvimento")
+
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
-
-from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
