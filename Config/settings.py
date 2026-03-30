@@ -33,9 +33,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "chave-insegura-de-desenvolvimento")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "True").upper() == "True"
+# Converte a string do .env para booleano de forma segura
+DEBUG = os.getenv("DEBUG", "True").strip().upper() == "TRUE"
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+# Garante que localhost sempre funcione em desenvolvimento
+env_hosts = os.getenv("ALLOWED_HOSTS") or "127.0.0.1,localhost"
+ALLOWED_HOSTS = [host.strip() for host in env_hosts.split(",") if host.strip()]
 
 
 # Application definition
@@ -128,6 +131,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# O Django já procura em app/static/ automaticamente. 
+# Use STATICFILES_DIRS apenas para pastas estáticas globais (fora dos apps).
+STATICFILES_DIRS = [
+    # BASE_DIR / "static", # Caso você crie uma pasta static na raiz futuramente
+]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 AUTH_USER_MODEL = 'usuarios.Usuario'
 
 MEDIA_URL = '/media/'
@@ -135,8 +146,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Em desenvolvimento (DEBUG=True), cookies seguros devem ser False para funcionar em HTTP
-SESSION_COOKIE_SECURE = not DEBUG
-CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = os.getenv("SECURE_COOKIES", "False").upper() == "TRUE" if not DEBUG else False
+CSRF_COOKIE_SECURE = SESSION_COOKIE_SECURE
 SESSION_COOKIE_HTTPONLY = True
 
 # Necessário para que o popup do Google consiga se comunicar de volta com seu site
