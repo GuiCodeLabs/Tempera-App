@@ -35,6 +35,9 @@ def cadastro(request):
         "GOOGLE_LOGIN_URL": reverse("google_login"),
     })
 
+def login_usuario(request):
+    return render(request, "login_usuario.html")
+
 
 @csrf_exempt
 @require_POST

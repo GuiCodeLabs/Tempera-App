@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Tempêra</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="{% static 'css/login_usuario.css' %}" />
+</head>
+<body>
+  <main class="login-layout">
+    <section class="login-visual">
+      <div class="visual-image">
+        <img
+          alt="Chef preparando ingredientes"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC5n2ihTcFLYdisjkdJ-ELLWs6zzFY8niFfEoXIeXCDZHOnNXn4WoQF8WNNzfFqmOrbqSdUrCUNGNb2hV0Cncv4r9HX0rU0brXlB-hAvBLQAOvznKQoiKDJAl5wLSf9FCpoGuyEbwDlliijpgQgL2FZKIqy6GM-nWx-F9ttlKrW005lizXKCagadfUuovVXqk4-ksc_G7KCke_9teIBqTsvVPHpmPtw8g_EfTkbfWXddWAo3oy8yWu6fY_LJJgMt_K_1cTSTe9xQ"
+        />
+      </div>
+      <div class="visual-overlay"></div>
+      <div class="branding-panel">
+        <div class="brand-hero">
+          <span class="brand-title">Tempêra</span>
+        </div>
+        <div>
+          <h1>Bem-vindo de volta ao seu curador de sabores.</h1>
+          <div class="brand-stripe"></div>
+        </div>
+        <p class="brand-copy">© 2024 Tempêra — Editorial de Gastronomia Digital</p>
+      </div>
+      <div class="branding-accent"></div>
+    </section>
+
+    <section class="login-form-panel">
+      <div class="login-card">
+        <div class="branding-mobile">Tempêra</div>
+
+        <div class="login-header">
+          <h1 class="login-title">Bem-vindo de volta</h1>
+          <p class="login-subtitle">Acesse sua cozinha digital e continue sua jornada culinária.</p>
+        </div>
+
+        <div class="social-grid">
+          <button type="button" class="social-btn">
+            <img
+              alt="Google"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoQnS_kzw9vDSlQaGh-jCDK0MYByMAR-DLMtFuHM2ZLW6lhU-yba6ZELhLZIRsDtTYRTlzCiZiOfj0WGiQEuG3FN0Ij_cnEdfIB7isS7UV-imCMSmojgj8OzERZTkiTZMZIkAU3VK24VHaC8cdFuzh0qY_c9UjNFZ9c6Wa-at3X5TcX_biwLKHthtuqtWBg8mjzmRkX2LPrRNMZiGD-9Lw9YTVgy7CAPPy6TBDQ7B89tfQdKQlbYz87DMheDctLnxjA2D1LoOTRw"
+            />
+            <span>Google</span>
+          </button>
+          <button type="button" class="social-btn">
+            <span class="material-symbols-outlined">ios</span>
+            <span>Apple</span>
+          </button>
+        </div>
+
+        <div class="divider">
+          <span>OU ENTRE COM E-MAIL</span>
+        </div>
+
+        <form class="login-form" method="post">
+          {% csrf_token %}
+
+          <div class="field-group">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" class="input-field" placeholder="seu@email.com" required />
+          </div>
+
+          <div class="field-group">
+            <div class="password-header">
+              <label for="password">Senha</label>
+              <a href="#">Esqueceu a senha?</a>
+            </div>
+            <input id="password" name="password" type="password" class="input-field" placeholder="••••••••" required />
+          </div>
+
+          <button type="submit" class="btn-primary">Entrar na minha conta</button>
+        </form>
+
+        <p class="register-note">
+          Não tem uma conta? <a href="{% url 'cadastro' %}">Cadastre-se aqui</a>
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

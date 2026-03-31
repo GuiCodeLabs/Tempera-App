@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import (cadastro, google_login, logout_view, me, perfil, editar_perfil, deletar_usuario, )
+from .views import cadastro, google_login, logout_view, me, perfil, editar_perfil, deletar_usuario, login_usuario 
 
 urlpatterns = [
     path("cadastro/", cadastro, name="cadastro"),
+    path("login/", login_usuario, name="login"),
     path("google/", google_login, name="google_login"),
     path("logout/", logout_view, name="logout"),
     path("me/", me, name="me"),
