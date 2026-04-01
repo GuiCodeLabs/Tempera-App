@@ -116,6 +116,7 @@
     <footer class="account-footer">
         <p>© 2026 Tempêra. Todos os direitos reservados.</p>
         <form action="{% url 'logout' %}" method="POST">
+            
             {% csrf_token %}
             <button type="submit" id="logout-button" class="btn btn-logout">
                 <span class="material-symbols-outlined">logout</span> Sair da Conta

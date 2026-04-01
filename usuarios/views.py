@@ -2,6 +2,7 @@ import json
 
 from django.conf import settings
 from django.contrib.auth import get_user_model, login, logout, authenticate
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.http import JsonResponse
@@ -185,7 +186,8 @@ def me(request):
 @require_POST
 def logout_view(request):
     logout(request)
-    return JsonResponse({"ok": True})
+    messages.success(request, "Você saiu da sua conta com sucesso.")
+    return redirect("home")
 
 
 @login_required

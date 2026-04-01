@@ -20,6 +20,42 @@
 </head>
 <body>
 
+
+  {% if messages %}
+  <div style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;">
+    {% for message in messages %}
+      <div style="
+          color: #0f5223; 
+          background-color: #c4f0d5; 
+          padding: 16px 24px; 
+          border-radius: 12px; 
+          font-family: 'Inter', sans-serif;
+          font-size: 0.95rem;
+          font-weight: 500;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          animation: slideIn 0.3s ease-out;
+      ">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+
+  <style>
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+
+  <script>
+    // Remove as mensagens após 5 segundos
+    setTimeout(() => {
+      const messages = document.querySelectorAll('[style*="position: fixed"] > div');
+      messages.forEach(msg => msg.remove());
+    }, 5000);
+  </script>
+{% endif %}
+
   <header class="site-header">
     <nav class="container navbar">
       <div class="logo">Tempêra </div>
