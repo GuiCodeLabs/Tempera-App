@@ -38,6 +38,11 @@ def cadastro(request):
     })
 
 def login_usuario(request):
+    context = {
+        "GOOGLE_CLIENT_ID": settings.GOOGLE_CLIENT_ID,
+        "GOOGLE_LOGIN_URL": reverse("google_login"),
+    }
+
     if request.method == "POST":
         email = request.POST.get("email")
         password = request.POST.get("password")
@@ -52,8 +57,10 @@ def login_usuario(request):
             login(request, user) 
             return redirect("home") 
         
+        context["error"] = "Email ou senha inválidos."
         
-    return render(request, "login_usuario.html", {"erro": "Usuário ou senha inválidos."})
+        
+    return render(request, "login_usuario.html", context)
 
 
 @csrf_exempt

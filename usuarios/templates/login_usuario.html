@@ -51,13 +51,8 @@
         </div>
 
         <div class="social-grid">
-          <button type="button" class="social-btn">
-            <img
-              alt="Google"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoQnS_kzw9vDSlQaGh-jCDK0MYByMAR-DLMtFuHM2ZLW6lhU-yba6ZELhLZIRsDtTYRTlzCiZiOfj0WGiQEuG3FN0Ij_cnEdfIB7isS7UV-imCMSmojgj8OzERZTkiTZMZIkAU3VK24VHaC8cdFuzh0qY_c9UjNFZ9c6Wa-at3X5TcX_biwLKHthtuqtWBg8mjzmRkX2LPrRNMZiGD-9Lw9YTVgy7CAPPy6TBDQ7B89tfQdKQlbYz87DMheDctLnxjA2D1LoOTRw"
-            />
-            <span>Google</span>
-          </button>
+          <div id="google-signin-button"></div>
+          
           <button type="button" class="social-btn">
             <span class="material-symbols-outlined">ios</span>
             <span>Apple</span>
@@ -99,5 +94,14 @@
       </div>
     </section>
   </main>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <script>
+    window.GOOGLE_CLIENT_ID = "{{ GOOGLE_CLIENT_ID }}";
+    window.GOOGLE_LOGIN_URL = "{{ GOOGLE_LOGIN_URL }}";
+  </script>
+
+  <script src="{% static 'js/server.js' %}"></script>
 </body>
 </html>
