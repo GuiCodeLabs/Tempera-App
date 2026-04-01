@@ -71,6 +71,12 @@
         <form class="login-form" method="post">
           {% csrf_token %}
 
+        {% if erro %}
+            <div style="color: #ba1a1a; background: #ffdad6; padding: 12px; border-radius: 12px; font-size: 0.9rem; text-align: center; font-weight: 600; margin-bottom: 15px;">
+              <p>{{ erro }}</p>
+            </div>
+          {% endif %}
+
           <div class="field-group">
             <label for="email">E-mail</label>
             <input id="email" name="email" type="email" class="input-field" placeholder="seu@email.com" required />

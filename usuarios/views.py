@@ -1,7 +1,7 @@
 import json
 
 from django.conf import settings
-from django.contrib.auth import get_user_model, login, logout
+from django.contrib.auth import get_user_model, login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.http import JsonResponse
@@ -11,6 +11,7 @@ from django.views.decorators.http import require_GET, require_POST
 
 from google.auth.transport import requests as google_requests
 from google.oauth2 import id_token
+from urllib3 import request
 
 from .forms import UsuarioCadastroForm
 from .models import GoogleAccount
@@ -36,7 +37,22 @@ def cadastro(request):
     })
 
 def login_usuario(request):
-    return render(request, "login_usuario.html")
+    if request.method == "POST":
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        
+        user_obj = User.objects.filter(email=email).first()
+        user = None
+
+        if user_obj:
+            user = authenticate(request, username=user_obj.username, password=password)
+        
+        if user is not None:
+            login(request, user) 
+            return redirect("home") 
+        
+        
+    return render(request, "login_usuario.html", {"erro": "Usuário ou senha inválidos."})
 
 
 @csrf_exempt
