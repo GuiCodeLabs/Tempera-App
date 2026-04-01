@@ -34,6 +34,7 @@
           font-weight: 500;
           box-shadow: 0 4px 12px rgba(0,0,0,0.1);
           animation: slideIn 0.3s ease-out;
+          transition: all 0.5s ease;
       ">
         {{ message }}
       </div>
@@ -48,10 +49,14 @@
   </style>
 
   <script>
-    // Remove as mensagens após 5 segundos
+    // Remove as mensagens de forma suave após 5 segundos
     setTimeout(() => {
       const messages = document.querySelectorAll('[style*="position: fixed"] > div');
-      messages.forEach(msg => msg.remove());
+      messages.forEach(msg => {
+        msg.style.opacity = '0'; // Deixa transparente
+        msg.style.transform = 'translateX(100%)'; // Desliza para a direita
+        setTimeout(() => msg.remove(), 500); // Aguarda a animação terminar (500ms) para remover o HTML
+      });
     }, 5000);
   </script>
 {% endif %}
