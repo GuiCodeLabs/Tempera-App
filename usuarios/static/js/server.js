@@ -51,11 +51,13 @@ window.addEventListener("load", function () {
     google.accounts.id.renderButton(
       googleButtonContainer,
       {
+        type: "standard",
         theme: "outline",
         size: "large",
         shape: "pill",
-        text: "continue_with",
-        width: 260
+        text: "signup_with",
+        width: 320,
+        locale: "en"
       }
     );
   }

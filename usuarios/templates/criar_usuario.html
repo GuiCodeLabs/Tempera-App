@@ -36,7 +36,7 @@
 
       <div class="branding-content">
         <div class="branding-top">
-          <div class="brand-logo"><a href="{% url 'home' %}">Tempêra</a></div>
+          <div class="brand-logo"><a href="{% url 'home' %}"><img src="{}" alt="">Tempêra</a></div>
           <h1>
             A arte de cozinhar,
             <br />
@@ -79,7 +79,17 @@
         </div>
 
         <div class="social-buttons">
-          <div id="google-signin-button"></div>
+          <div class="google-button-shell">
+            <div class="social-btn social-btn-google" aria-hidden="true">
+              <img
+                class="social-icon-google"
+                src="https://developers.google.com/identity/images/g-logo.png"
+                alt="Google"
+              />
+              <span>Google</span>
+            </div>
+            <div id="google-signin-button" class="google-signin-overlay"></div>
+          </div>
 
           <button class="social-btn" type="button">
             <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">

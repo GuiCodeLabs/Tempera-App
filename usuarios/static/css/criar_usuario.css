@@ -497,3 +497,67 @@ a {
     font-size: 1.75rem;
   }
 }
+
+.social-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.google-button-shell {
+  position: relative;
+}
+
+.social-btn {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 24px;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.social-btn:hover {
+  background: #fafafa;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.social-btn span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #202124;
+}
+
+.social-btn-google {
+  gap: 16px;
+}
+
+.social-icon-google {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.google-signin-overlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 999px;
+  opacity: 0.01;
+}
+
+.google-signin-overlay > div,
+.google-signin-overlay iframe {
+  width: 100% !important;
+  height: 56px !important;
+}

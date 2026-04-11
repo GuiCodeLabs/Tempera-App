@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tempêra - A Curadoria Editorial do Paladar</title>
+  <title>Tempêra - Início</title>
 
   <link rel="stylesheet" href="{% static 'tempera/css/home.css' %}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,7 +63,7 @@
 
   <header class="site-header">
     <nav class="container navbar">
-      <div class="logo">Tempêra </div>
+      <div class="logo"><a href="{% url 'home' %}"> Tempêra</a> </div>
 
       <ul class="nav-menu">
         <li><a class="active" href="#">Home</a></li>
@@ -339,7 +339,7 @@
             Faça login para salvar suas receitas favoritas, organizar pastas por
             ocasião e nunca perder aquela inspiração perfeita.
           </p>
-          <button class="btn btn-primary rounded">Entrar agora</button>
+          <button class="btn btn-primary rounded"><a href="{% url 'login' %}">Entrar agora</a></button>
         </div>
       </div>
     </section>
@@ -422,9 +422,18 @@
           <a href="#">GitHub</a>
         </div>
 
-        <div class="footer-copy">
-          © 2026 Tempêra - A Curadoria Editorial do Paladar
+        
+
+        <div class="footer-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Suporte</a>
         </div>
+
+        <div class="footer-copy">
+          © 2026 Tempêra - Todos os direitos reservados.
+        </div>
+
       </div>
     </div>
   </footer>
