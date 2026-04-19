@@ -12,7 +12,6 @@ from django.views.decorators.http import require_GET, require_POST
 
 from google.auth.transport import requests as google_requests
 from google.oauth2 import id_token
-from urllib3 import request
 
 from .forms import UsuarioCadastroForm
 from .models import GoogleAccount
@@ -56,8 +55,8 @@ def login_usuario(request):
         if user is not None:
             login(request, user) 
             return redirect("home") 
-        
-        context["error"] = "Email ou senha inválidos."
+
+        context["erro"] = "Email ou senha inválidos."
         
         
     return render(request, "login_usuario.html", context)
@@ -165,8 +164,8 @@ def google_login(request):
     except json.JSONDecodeError:
         return JsonResponse({"error": "JSON inválido."}, status=400)
 
-    except ValueError:
-        return JsonResponse({"error": "Token Google inválido."}, status=401)
+    except ValueError as e:
+        return JsonResponse({"error": f"Token Google inválido: {str(e)}"}, status=401)
 
     except Exception as e:
         return JsonResponse({"error": f"Erro interno: {str(e)}"}, status=500)
