@@ -55,8 +55,8 @@ window.addEventListener("load", function () {
         theme: "outline",
         size: "large",
         shape: "pill",
-        text: "signup_with",
-        width: 320,
+        text: "signin_with",
+        width: 220,
         locale: "en"
       }
     );

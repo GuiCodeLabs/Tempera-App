@@ -359,3 +359,106 @@ input {
     width: 100%;
   }
 }
+@media (max-width: 640px) {
+  .social-buttons,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .social-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .google-button-shell,
+  .social-buttons > .social-btn,
+  .social-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .google-signin-overlay > div,
+  .google-signin-overlay iframe {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .auth-form-wrapper {
+    gap: 24px;
+  }
+
+  .form-header h2 {
+    font-size: 1.75rem;
+  }
+}
+.social-grid {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 32px 0 24px;
+}
+
+.google-button-shell,
+.social-grid > .social-btn {
+  width: 220px;
+  flex: 0 0 220px;
+}
+
+.google-button-shell {
+  position: relative;
+  height: 56px;
+}
+
+.social-btn {
+  width: 220px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 24px;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.google-signin-overlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 999px;
+  opacity: 0.01;
+}
+
+.google-signin-overlay > div,
+.google-signin-overlay iframe {
+  width: 220px !important;
+  height: 56px !important;
+  min-width: 220px !important;
+  max-width: 220px !important;
+}
+
+@media (max-width: 720px) {
+  .social-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .google-button-shell,
+  .social-grid > .social-btn,
+  .social-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .google-signin-overlay > div,
+  .google-signin-overlay iframe {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+}

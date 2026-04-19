@@ -51,8 +51,19 @@
         </div>
 
         <div class="social-grid">
-          <div id="google-signin-button" style="display: flex; justify-content: center;"></div>
-          
+          <div class="google-button-shell">
+            <div class="social-btn social-btn-google visual-google-btn" aria-hidden="true">
+              <img
+                class="social-icon-google"
+                src="https://developers.google.com/identity/images/g-logo.png"
+                alt="Google"
+              />
+              <span>Google</span>
+            </div>
+
+            <div id="google-signin-button" class="google-signin-overlay"></div>
+          </div>
+
           <button type="button" class="social-btn">
             <span class="material-symbols-outlined">ios</span>
             <span>Apple</span>
